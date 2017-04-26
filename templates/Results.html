@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Results</title>
+<style>
+#piechart{
+
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+</style>
+  
+  
+      
+       <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+
+  
+</head>
+
+<body>
+<ul>
+  <li><a class="active" href="/home">Enter a review</a></li>
+</ul>
+
+<div class="container">
+{%set i=0%}
+{%if (i<count)%}
+  <div class="card" z-default=10 z-hover=30>
+    <p>{{transfer[i]["query"]}}<p>
+      <div class="row">
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4" id="pol">
+            <h5>{{transfer[i]["carry"]}}</h5>
+        </div>
+    </div>
+  </div>
+  {%set i=i+1%} 
+  {%endif%}
+
+{%if (i<count)%}
+  <div class="card" z-default=10 z-hover=30>
+    <p>{{transfer[i]["query"]}}<p>
+      <div class="row">
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4" id="pol">
+            <h5>{{transfer[i]["carry"]}}</h5>
+        </div>
+    </div>
+  </div>
+  {%set i=i+1%} 
+  {%endif%}
+{%if (i<count)%}
+  <div class="card" z-default=10 z-hover=30>
+    <p>{{transfer[i]["query"]}}<p>
+      <div class="row">
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4" id="pol">
+            <h5>{{transfer[i]["carry"]}}</h5>
+        </div>
+    </div>
+  </div>
+  {%set i=i+1%} 
+  {%endif%}
+  {%if (i<count)%}
+  <div class="card" z-default=10 z-hover=30>
+    <p>{{transfer[i]["query"]}}<p>
+      <div class="row">
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4" id="pol">
+            <h5>{{transfer[i]["carry"]}}</h5>
+        </div>
+    </div>
+  </div>
+  {%set i=i+1%} 
+  {%endif%}
+{%if (i<count)%}
+  <div class="card" z-default=10 z-hover=30>
+    <p>{{transfer[i]["query"]}}<p>
+      <div class="row">
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4" id="pol">
+            <h5>{{transfer[i]["carry"]}}</h5>
+        </div>
+    </div>
+  </div>
+  {%set i=i+1%} 
+  {%endif%}
+{%if (i<count)%}
+  <div class="card" z-default=10 z-hover=30>
+    <p>{{transfer[i]["query"]}}<p>
+      <div class="row">
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4" id="pol">
+            <h5>{{transfer[i]["carry"]}}</h5>
+        </div>
+    </div>
+  </div>
+  {%set i=i+1%} 
+  {%endif%}
+{%if (i<count)%}
+  <div class="card" z-default=10 z-hover=30>
+    <p>{{transfer[i]["query"]}}<p>
+      <div class="row">
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4" id="pol">
+            <h5>{{transfer[i]["carry"]}}</h5>
+        </div>
+    </div>
+  </div>
+  {%set i=i+1%} 
+  {%endif%}
+
+
+
+
+
+
+
+
+
+
+  </div>
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-4">
+  <div id="piechart" style="width: 900px; height: 500px;"></div>
+  </div>
+   <script src="{{ url_for('static', filename='js/loader.js') }}"></script>
+
+
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var p = {{ pos }};
+          var n = {{ neg}};
+        var data = google.visualization.arrayToDataTable([
+          ['Polarity', 'Number of reviews'],
+          ['Positive',    p],
+          ['Negative',      n]
+        ]);
+
+        var options = {
+          title: 'Overall Polarity'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+   
+   
+
+</body>
+</html>

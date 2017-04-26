@@ -1,0 +1,47 @@
+<html>
+<style>
+
+body {
+    background-image: url("static/images/bg.jpeg");
+    background-size: 2026px 1080px;
+    background-repeat: no-repeat;
+    overflow-x:hidden
+    }
+.button {
+	-webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+	border-radius: 8px;
+ 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: #38423F;
+    border: none;
+    color: white;
+    padding: 15px 55px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: #E8412C; /* Red */
+    color: white;
+}
+#user{
+	position:relative;left:580px;top:200px;
+}
+#admin{
+	position:relative;left:730px;top:144px;
+}
+</style>
+<body>
+<div id="user">
+    
+     <a href="/home" class="button" >User</a> 
+</div>
+<div id="admin">
+<a href="/results" class="button">Admin</a> 
+</div>
+</body>
+
+</html>
